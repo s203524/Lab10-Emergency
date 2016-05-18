@@ -1,5 +1,6 @@
 package it.polito.tdp.emergency.model;
 
+import it.polito.tdp.emergency.db.FieldHospitalDAO;
 import it.polito.tdp.emergency.simulation.Core;
 import it.polito.tdp.emergency.simulation.Evento;
 import it.polito.tdp.emergency.simulation.Paziente;
@@ -7,12 +8,15 @@ import it.polito.tdp.emergency.simulation.Paziente;
 public class Model {
 
 	Core simulatore;
+	FieldHospitalDAO dao; 
 
 	protected void stub() {
 		simulatore = new Core();
-
+		dao = new FieldHospitalDAO();
+		dao.getAll(simulatore);
 		simulatore.setMediciDisponibili(1);
-
+		
+		/*
 		simulatore.aggiungiPaziente(new Paziente(1, Paziente.StatoPaziente.ROSSO));
 		simulatore.aggiungiPaziente(new Paziente(2, Paziente.StatoPaziente.ROSSO));
 		simulatore.aggiungiPaziente(new Paziente(3, Paziente.StatoPaziente.ROSSO));
@@ -22,11 +26,15 @@ public class Model {
 		simulatore.aggiungiEvento(new Evento(11, Evento.TipoEvento.PAZIENTE_ARRIVA, 2));
 		simulatore.aggiungiEvento(new Evento(12, Evento.TipoEvento.PAZIENTE_ARRIVA, 3));
 		simulatore.aggiungiEvento(new Evento(13, Evento.TipoEvento.PAZIENTE_ARRIVA, 4));
-
+		*/
 		simulatore.simula();
 
 		System.err.println("Persi:" + simulatore.getPazientiPersi());
 		System.err.println("Salvati:" + simulatore.getPazientiSalvati());
+	}
+
+	public Core getSimulatore() {
+		return simulatore;
 	}
 
 }

@@ -20,6 +20,12 @@ public class Paziente implements Comparable<Paziente> {
 	private int id;
 	private StatoPaziente stato;
 
+	public Paziente(int id, StatoPaziente stato) {
+		super();
+		this.id = id;
+		this.stato = stato;
+	}
+
 	@Override
 	public int hashCode() {
 		return id;
@@ -54,12 +60,6 @@ public class Paziente implements Comparable<Paziente> {
 	@Override
 	public String toString() {
 		return "Paziente [id=" + id + ", stato=" + stato + "]";
-	}
-
-	public Paziente(int id, StatoPaziente stato) {
-		super();
-		this.id = id;
-		this.stato = stato;
 	}
 
 	@Override
