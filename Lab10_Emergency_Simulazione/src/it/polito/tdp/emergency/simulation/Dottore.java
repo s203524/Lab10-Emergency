@@ -4,7 +4,7 @@ public class Dottore {
 	protected int id;
 	protected String nome;
 	public enum statoDottore{
-		LIBERO, OCCUPATO, PAUSA 
+		LIBERO, PAUSA 
 		};
 	protected statoDottore stato;
 

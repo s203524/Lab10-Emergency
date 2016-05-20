@@ -10,11 +10,11 @@ public class Model {
 	Core simulatore;
 	FieldHospitalDAO dao; 
 
-	protected void stub() {
+	public void stub() {
 		simulatore = new Core();
 		dao = new FieldHospitalDAO();
 		dao.getAll(simulatore);
-		simulatore.setMediciDisponibili(1);
+		simulatore.setMediciDisponibili(2);
 		
 		/*
 		simulatore.aggiungiPaziente(new Paziente(1, Paziente.StatoPaziente.ROSSO));
@@ -29,8 +29,8 @@ public class Model {
 		*/
 		simulatore.simula();
 
-		System.err.println("Persi:" + simulatore.getPazientiPersi());
-		System.err.println("Salvati:" + simulatore.getPazientiSalvati());
+		System.out.println("Persi:" + simulatore.getPazientiPersi());
+		System.out.println("Salvati:" + simulatore.getPazientiSalvati());
 	}
 
 	public Core getSimulatore() {

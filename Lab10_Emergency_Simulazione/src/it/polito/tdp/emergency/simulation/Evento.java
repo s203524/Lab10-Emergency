@@ -18,7 +18,7 @@ public class Evento implements Comparable<Evento> {
 	protected TipoEvento tipo;
 	protected int dato;
 	public enum TipoEvento {
-		PAZIENTE_ARRIVA, PAZIENTE_GUARISCE, PAZIENTE_MUORE, DOTTORE_INIZA_TURNO, DOTTORE_FINE_TURNO
+		PAZIENTE_ARRIVA, PAZIENTE_GUARISCE, PAZIENTE_MUORE, DOTTORE_INIZIA_TURNO, DOTTORE_FINE_TURNO
 	};
 
 	public Evento(long time, TipoEvento type, int dato) {

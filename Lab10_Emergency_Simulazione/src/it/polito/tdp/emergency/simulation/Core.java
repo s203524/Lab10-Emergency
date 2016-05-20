@@ -61,7 +61,7 @@ public class Core {
 		tempD.setStato(statoDottore.PAUSA);
 		idDottore++;
 		dottori.put(tempD.getId(), tempD);
-		new Evento(sfasamento, TipoEvento.DOTTORE_INIZA_TURNO, tempD.getId());
+		listaEventi.add(new Evento(sfasamento, TipoEvento.DOTTORE_INIZIA_TURNO, tempD.getId()));
 		
 	}
 
@@ -106,6 +106,13 @@ public class Core {
 				pazienti.get(e.getDato()).setStato(Paziente.StatoPaziente.NERO);
 				System.out.println("Paziente morto: " + e);
 			}
+			break;
+		case DOTTORE_INIZIA_TURNO:
+			mediciDisponibili++;
+			listaEventi.add(new Evento((e.getTempo()+480), TipoEvento.DOTTORE_FINE_TURNO, e.getDato()));
+			dottori.get(e.getDato()).setStato(statoDottore.PAUSA);
+			break;
+		case DOTTORE_FINE_TURNO:
 			break;
 		default:
 			System.err.println("Panik!");
